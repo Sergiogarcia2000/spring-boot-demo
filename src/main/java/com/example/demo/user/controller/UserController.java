@@ -4,22 +4,19 @@ import com.example.demo.common.controller.BaseController;
 import com.example.demo.user.controller.dto.UserDto;
 import com.example.demo.user.controller.mapper.UserMapper;
 import com.example.demo.user.service.UserService;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@AllArgsConstructor
 @RequestMapping("/users")
 public class UserController implements BaseController {
 
     private final UserService userService;
 
     private final UserMapper userMapper;
-
-    public UserController(UserService userService, UserMapper userMapper) {
-        this.userService = userService;
-        this.userMapper = userMapper;
-    }
 
     @GetMapping
     public List<UserDto> getAllUsers() {
